@@ -6,31 +6,44 @@
   </p>
   <button @click="addOne">{{ buttonLabel }}</button>
 
-  <data-table :items="testData"></data-table>
+  <data-table :items="knights"></data-table>
+  <button @click="addSomeKnights">Moar knights!</button>
 </div>
 </template>
 
 <script>
 import DataTable from './DataTable.vue'
+import { Knights } from '/imports/api/knights'
+
+const testData = [
+  {name: "Lancelot", quest: "To seek the Holy Grail", favoriteColor: "blue"},
+  {name: "Arthur", quest: "To seek the Holy Grail", favoriteColor: "green"},
+  {name: "Galahad", quest: "To seek the Holy Grail", unladenSwallowVelocity: 0}
+]
+
 
 export default {
   data() {
     return {
       count: 0,
-      buttonLabel: 'Cliquez-moi !',
-      testData: [
-        {name: "Lancelot", quest: "To seek the Holy Grail", favoriteColor: "blue"},
-        {name: "Arthur", quest: "To seek the Holy Grail", favoriteColor: "green"},
-        {name: "Galahad", quest: "To seek the Holy Grail", unladenSwallowVelocity: 0}
-      ]
+      buttonLabel: 'Cliquez-moi !'
     }
   },
   methods: {
-    addOne() { this.count++ }
+    addOne() { this.count++ },
+    addSomeKnights() {
+      for (let k of testData) {
+        Knights.insert(k)
+      }
+    }
   },
-  components: { DataTable }
+  components: { DataTable },
+  //  https://github.com/meteor-vue/vue-meteor-tracker#reactive-data
+  meteor: {
+    knights: () => Knights.find({}).fetch()
+  }
 };
-</script>
+</Script>
 
 <style>
 body {
