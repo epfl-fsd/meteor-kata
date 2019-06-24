@@ -17,14 +17,8 @@
 </template>
 
 <script>
-const testData = [
-  {name: "Lancelot", quest: "To seek the Holy Grail", favoriteColor: "blue"},
-  {name: "Arthur", quest: "To seek the Holy Grail", favoriteColor: "green"},
-  {name: "Galahad", quest: "To seek the Holy Grail", unladenSwallowVelocity: 0}
-]
-
 export default {
-  data: () => ({items: testData})
+  props: { 'items': Array }
 }
 </script>
 

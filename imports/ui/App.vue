@@ -6,7 +6,7 @@
   </p>
   <button @click="addOne">{{ buttonLabel }}</button>
 
-  <data-table></data-table>
+  <data-table :items="testData"></data-table>
 </div>
 </template>
 
@@ -18,6 +18,11 @@ export default {
     return {
       count: 0,
       buttonLabel: 'Cliquez-moi !',
+      testData: [
+        {name: "Lancelot", quest: "To seek the Holy Grail", favoriteColor: "blue"},
+        {name: "Arthur", quest: "To seek the Holy Grail", favoriteColor: "green"},
+        {name: "Galahad", quest: "To seek the Holy Grail", unladenSwallowVelocity: 0}
+      ]
     }
   },
   methods: {
