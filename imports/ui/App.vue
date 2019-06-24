@@ -5,10 +5,14 @@
     Vous avez pressé le bouton {{count}} fois.
   </p>
   <button @click="addOne">{{ buttonLabel }}</button>
+
+  <data-table></data-table>
 </div>
 </template>
 
 <script>
+import DataTable from './DataTable.vue'
+
 export default {
   data() {
     return {
@@ -18,7 +22,8 @@ export default {
   },
   methods: {
     addOne() { this.count++ }
-  }
+  },
+  components: { DataTable }
 };
 </script>
 
