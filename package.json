@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
-    "meteor-node-stubs": "^0.4.1"
+    "meteor-node-stubs": "^0.4.1",
+    "vue": "^2.6.10",
+    "vue-meteor-tracker": "^1.0.3"
   },
   "meteor": {
     "mainModule": {
@@ -17,5 +19,6 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
-  }
+  },
+  "devDependencies": {}
 }
